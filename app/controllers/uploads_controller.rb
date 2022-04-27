@@ -10,7 +10,7 @@ class UploadsController < ApplicationController
 
   # GET /uploads/1
   def show
-    render json: @upload
+    render json: @upload.to_json(include: :images )
   end
 
   # POST /uploads
