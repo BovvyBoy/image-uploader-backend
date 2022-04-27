@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  upload: one
+  x: 1
+  'y': 1
+  width: 1
+  height: 1
+  type: 
+
+two:
+  upload: two
+  x: 1
+  'y': 1
+  width: 1
+  height: 1
+  type: 
