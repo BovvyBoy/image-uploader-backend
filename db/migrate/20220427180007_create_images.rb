@@ -7,6 +7,7 @@ class CreateImages < ActiveRecord::Migration[7.0]
       t.integer :width
       t.integer :height
       t.string :type
+      t.string :location
 
       t.timestamps
     end
