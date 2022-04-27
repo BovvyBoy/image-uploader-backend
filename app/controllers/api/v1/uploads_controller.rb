@@ -1,11 +1,11 @@
-class UploadsController < ApplicationController
+class Api::V1::UploadsController < ApplicationController
   before_action :set_upload, only: %i[ show update destroy ]
 
   # GET /uploads
   def index
     @uploads = Upload.all
 
-    render json: @uploads
+    render json: @uploads.to_json(include: :images )
   end
 
   # GET /uploads/1
@@ -46,6 +46,6 @@ class UploadsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def upload_params
-      params.require(:upload).permit(:title, :date)
+      params.require(:upload).permit(:title, :date, :picture, selections: [])
     end
 end
