@@ -10,12 +10,16 @@ class Api::V1::UploadsController < ApplicationController
 
   # GET /uploads/1
   def show
+    @upload = Upload.find_by(title: params[:title])
+    @picture = rails_blob_path(@upload.picture)
+
     render json: @upload.to_json(include: :images )
   end
 
   # POST /uploads
   def create
     @upload = Upload.new(upload_params)
+    @picture = rails_blob_path(@upload.picture)
 
     if @upload.save
       render json: @upload, status: :created, location: @upload
@@ -46,6 +50,6 @@ class Api::V1::UploadsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def upload_params
-      params.require(:upload).permit(:title, :date, :picture, selections: [])
+      params.require(:upload).permit(:title, :date, :picture)
     end
 end

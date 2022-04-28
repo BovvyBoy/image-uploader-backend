@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+second = Upload.create(title: "second one", date: Time.now)
+
+second.picture.attach(
+    io: File.open('./public/pictures/download.png'),
+    filename: 'download.png',
+    content_type: 'application/png'
+)
