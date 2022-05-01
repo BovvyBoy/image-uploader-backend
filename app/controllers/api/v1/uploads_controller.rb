@@ -19,6 +19,7 @@ class Api::V1::UploadsController < ApplicationController
   # POST /uploads
   def create
     @upload = Upload.new(upload_params)
+    @upload.date = Time.now
     @picture = rails_blob_path(@upload.picture)
 
     if @upload.save
